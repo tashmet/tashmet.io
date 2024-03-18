@@ -18,6 +18,7 @@ const config = {
                 './src/layouts/Default.svelte'
             )
           },
+          nodes: join(dirname(fileURLToPath(import.meta.url)), './src/components/nodes/index.svelte'),
           tags: join(dirname(fileURLToPath(import.meta.url)), './src/components/tags/index.svelte'),
           config: {
           variables: {

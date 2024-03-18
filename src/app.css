@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --code-bg: #17363a;
+  --code-string: #ffeb8d;
+  --code-number: #ffeb8d;
+  --code-keyword: #85c1c2;
+  --code-title: #b4ffff;
+  --code-comment: #316971;
+}
+
+.hljs-title {
+  color: var(--code-title);
+}
+.hljs-keyword {
+  color: var(--code-keyword);
+}
+.hljs-comment {
+  color: var(--code-comment);
+}
+.hljs-string {
+  color: var(--code-string);
+}
+.hljs-number {
+  color: var(--code-number);
+}
+.hljs-meta {
+  color: var(--code-comment);
+}
+.language-bash {
+  color: var(--code-title);
+}

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import "../app.css";
   import toc from '../toc.json';
 
   export let next: any;
