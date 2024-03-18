@@ -1,0 +1,91 @@
+[
+  {
+    "pages": [
+      {
+        "slug": "installation",
+        "title": "Installation"
+      },
+      {
+        "slug": "hello-world",
+        "title": "Hello World"
+      }
+    ],
+    "title": "Getting Started"
+  },
+  {
+    "pages": [
+      {
+        "slug": "storage-engines",
+        "title": "Storage engines"
+      },
+      {
+        "slug": "connection",
+        "title": "Connection"
+      },
+      {
+        "slug": "collections",
+        "title": "Collections"
+      },
+      {
+        "slug": "aggregation",
+        "title": "Aggregation"
+      },
+      {
+        "slug": "cursors",
+        "title": "Cursors"
+      }
+    ],
+    "title": "Concepts"
+  },
+  {
+    "pages": [
+      {
+        "slug": "memory",
+        "title": "Memory"
+      },
+      {
+        "slug": "directory",
+        "title": "Directory"
+      },
+      {
+        "slug": "glob",
+        "title": "Glob"
+      },
+      {
+        "slug": "array-in-file",
+        "title": "Array in file"
+      },
+      {
+        "slug": "object-in-file",
+        "title": "Object in file"
+      }
+    ],
+    "title": "Storage"
+  },
+  {
+    "pages": [
+      {
+        "slug": "pipeline",
+        "title": "Pipeline"
+      }
+    ],
+    "title": "Standard operators"
+  },
+  {
+    "pages": [
+      {
+        "slug": "json",
+        "title": "JSON"
+      },
+      {
+        "slug": "yaml",
+        "title": "YAML"
+      },
+      {
+        "slug": "fs",
+        "title": "File system"
+      }
+    ],
+    "title": "Custom operators"
+  }
+]
