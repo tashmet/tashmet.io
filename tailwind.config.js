@@ -2,7 +2,12 @@
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        active: '#1faec8',
+        'active-light': '#f1fbfb',
+      },
+    },
   },
   plugins: [],
 }
