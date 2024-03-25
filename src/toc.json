@@ -1,91 +1,199 @@
-[
-  {
-    "pages": [
-      {
-        "slug": "installation",
-        "title": "Installation"
-      },
-      {
-        "slug": "hello-world",
-        "title": "Hello World"
-      }
-    ],
-    "title": "Getting Started"
-  },
-  {
-    "pages": [
-      {
-        "slug": "storage-engines",
-        "title": "Storage engines"
-      },
-      {
-        "slug": "connection",
-        "title": "Connection"
-      },
-      {
-        "slug": "collections",
-        "title": "Collections"
-      },
-      {
-        "slug": "aggregation",
-        "title": "Aggregation"
-      },
-      {
-        "slug": "cursors",
-        "title": "Cursors"
-      }
-    ],
-    "title": "Concepts"
-  },
-  {
-    "pages": [
-      {
-        "slug": "memory",
-        "title": "Memory"
-      },
-      {
-        "slug": "directory",
-        "title": "Directory"
-      },
-      {
-        "slug": "glob",
-        "title": "Glob"
-      },
-      {
-        "slug": "array-in-file",
-        "title": "Array in file"
-      },
-      {
-        "slug": "object-in-file",
-        "title": "Object in file"
-      }
-    ],
-    "title": "Storage"
-  },
-  {
-    "pages": [
-      {
-        "slug": "pipeline",
-        "title": "Pipeline"
-      }
-    ],
-    "title": "Standard operators"
-  },
-  {
-    "pages": [
-      {
-        "slug": "json",
-        "title": "JSON"
-      },
-      {
-        "slug": "yaml",
-        "title": "YAML"
-      },
-      {
-        "slug": "fs",
-        "title": "File system"
-      }
-    ],
-    "title": "Custom operators"
-  }
-]
+{
+  "ast": [
+    {
+      "type": "heading",
+      "depth": 1,
+      "text": "Table of contents"
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "text": "Getting Started"
+    },
+    {
+      "type": "list",
+      "children": [
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Introduction",
+              "url": "/docs/"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Installation",
+              "url": "/docs/installation"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Hello World",
+              "url": "/docs/hello-world"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "text": "Concepts"
+    },
+    {
+      "type": "list",
+      "children": [
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Storage engines",
+              "url": "/docs/storage-engines"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Connection",
+              "url": "/docs/connection"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Collections",
+              "url": "/docs/collections"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Aggregation",
+              "url": "/docs/aggregation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "text": "Storage"
+    },
+    {
+      "type": "list",
+      "children": [
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Memory",
+              "url": "/docs/memory"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Directory",
+              "url": "/docs/directory"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Glob",
+              "url": "/docs/glob"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Array in file",
+              "url": "/docs/array-in-file"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "Object in file",
+              "url": "/docs/object-in-file"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "depth": 2,
+      "text": "Custom operators"
+    },
+    {
+      "type": "list",
+      "children": [
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "JSON",
+              "url": "/docs/json"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "YAML",
+              "url": "/docs/yaml"
+            }
+          ]
+        },
+        {
+          "type": "listItem",
+          "children": [
+            {
+              "type": "link",
+              "text": "File system",
+              "url": "/docs/fs"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
