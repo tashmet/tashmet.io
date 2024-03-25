@@ -1,6 +1,10 @@
 <script lang="ts">
   import "../app.css";
+  import Navigation from "../components/nav/index.svelte";
   import site from '../site.json';
+  import toc from '../toc.json';
+
+  const nodes = toc.ast;
 
   export let topic: any;
   export let slug: any;
@@ -23,7 +27,7 @@
             <nav class="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
               <ul class="flex space-x-8">
                 <li>
-                  <a class="hover:text-sky-500 dark:hover:text-sky-400" href={site.topics[0].pages[0].slug}>Docs</a>
+                  <a class="hover:text-sky-500 dark:hover:text-sky-400" href="">Docs</a>
                 </li>
                 <li>
                   <a href={site.github}>
@@ -39,23 +43,7 @@
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-    <nav class="hidden lg:block fixed z-20 inset-0 top-[3.8125rem] left-[max(0px,calc(50%-40rem))] right-auto w-[19rem] pb-10 pl-8 pr-6 overflow-y-auto">
-      <div class="">
-        {#each site.topics as topic}
-          <h1 class="font-bold text-sm mt-6 mb-2">
-            {topic.title}
-          </h1>
-        
-          <ul>
-            {#each topic.pages as page}
-              <li class="text-sm pl-4 ml-2 py-2 border-l {page.slug === slug ? 'border-active bg-active-light' : ''}">
-                <a class="hover:text-active {page.slug === slug ? 'text-active' : 'text-slate-600'}" href={page.slug}>{page.title}</a>
-              </li>
-            {/each}
-          </ul>
-        {/each}
-      </div>
-    </nav>
+    <Navigation nodes={nodes} slug={slug}/>
 
     <div class="lg:pl-[19.5rem]">
       <div class="max-w-3xl mx-auto pt-10 xl:max-w-none xl:ml-0 xl:mr-[15.5rem] xl:pr-16">

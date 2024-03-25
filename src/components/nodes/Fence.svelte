@@ -1,7 +1,7 @@
 <script lang="ts">
   import hljs from 'highlight.js';
 
-	export let language: string;
+	export let language: string = 'shell';
 	export let content: string;
 
   $: html = hljs.highlight(content.trim(), { language }).value;
