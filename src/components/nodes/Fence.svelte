@@ -3,6 +3,7 @@
 
 	export let language: string = 'shell';
 	export let content: string;
+  export let process: boolean;
 
   $: html = hljs.highlight(content.trim(), { language }).value;
 </script>
