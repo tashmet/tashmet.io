@@ -32,3 +32,52 @@
 .language-bash {
   color: var(--code-title);
 }
+
+table {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+th {
+  text-align: left;
+  padding: 4px;
+  font-size: 0.7em;
+  border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+td {
+  text-align: left;
+  font-size: 0.7em;
+  padding: 4px;
+  vertical-align: top;
+}
+
+td:last-child { width: 50% ;}
+
+.docs h1 + h2 {
+  margin-top: -3em!important;
+}
+
+em {
+  opacity: 0.52;
+  font-weight: 100;
+}
+
+hr {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+body {
+  font-family: 'Overpass', sans-serif;
+}
+
+pre {
+  display: flex;
+}
+
+code {
+  font-family: 'Fira Mono', monospace;
+  font-size: 1.0em;
+  font-style: normal;
+}
