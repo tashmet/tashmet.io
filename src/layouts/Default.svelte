@@ -10,7 +10,7 @@
   export let slug: any;
   export let title: any;
   export let description: any;
-  export let headings: any;
+  export let headings: any[] = [];
   export let prev: any;
   export let next: any;
 </script>
