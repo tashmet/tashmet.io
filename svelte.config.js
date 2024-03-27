@@ -16,10 +16,15 @@ const config = {
             default: join(
                 dirname(fileURLToPath(import.meta.url)),
                 './src/layouts/Default.svelte'
-            )
+            ),
+            index: join(
+                dirname(fileURLToPath(import.meta.url)),
+                './src/layouts/Index.svelte'
+            ),
           },
           nodes: join(dirname(fileURLToPath(import.meta.url)), './src/components/nodes/index.svelte'),
           tags: join(dirname(fileURLToPath(import.meta.url)), './src/components/tags/index.svelte'),
+          partials: join(dirname(fileURLToPath(import.meta.url)), './src/partials'),
           config: {
           variables: {
             toc: 'Table of contents',

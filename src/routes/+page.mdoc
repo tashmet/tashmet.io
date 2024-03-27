@@ -1,14 +1,38 @@
 ---
-layout: default
-next:
-  title: "Getting Started"
-  url: /getting-started
+layout: index
+hero:
+  actions:
+    - title: Get started
+      href: /docs/installation
+showcase:
+  title: Powerful aggregations with familiar syntax
+  description: >
+    Tashmet is a javascript library that implements a large subset of MongoDB with
+    an almost identical interface. This is made available through the excellent
+    mingo aggregation engine.
+storageSolutions:
+  arrayInFile:
+    title: Array in file
+    icon: data_array
+    description: >
+      Store a collection as an array within a JSON or YAML file
+  objectInFile:
+    title: Object in file
+    icon: data_object
+    description: >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  directory:
+    title: Directory
+    icon: folder
+    description: >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  glob:
+    title: Glob
+    icon: regular_expression
+    description: >
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ---
 
-# I am a heading
-
-I am a paragraph with **bold** words. But you can also use Svelte Components:
-
-{% hint style="info" %}
-Hello, I am a hint!
-{% /hint %}
+{% partial file="hero.md" variables=$frontmatter.hero /%}
+{% partial file="showcase.md" variables=$frontmatter.showcase /%}
+{% partial file="storage-solutions.md" variables=$frontmatter.storageSolutions /%}
