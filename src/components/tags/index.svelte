@@ -3,6 +3,8 @@
   export { default as Hero } from './Hero.svelte';
   export { default as Editor } from './Editor.svelte';
   export { default as Tab } from './Tab.svelte';
+  export { default as Grid } from './Grid.svelte';
+  export { default as Div } from './Div.svelte';
   export { default as Tabs } from './Tabs.svelte';
   export { default as File } from './File.svelte';
   export { default as Section } from './Section.svelte';

@@ -1,38 +1,207 @@
 ---
 layout: index
-hero:
-  actions:
-    - title: Get started
-      href: /docs/installation
 showcase:
   title: Powerful aggregations with familiar syntax
   description: >
     Tashmet is a javascript library that implements a large subset of MongoDB with
     an almost identical interface. This is made available through the excellent
     mingo aggregation engine.
-storageSolutions:
-  arrayInFile:
-    title: Array in file
-    icon: data_array
-    description: >
-      Store a collection as an array within a JSON or YAML file
-  objectInFile:
-    title: Object in file
-    icon: data_object
-    description: >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  directory:
-    title: Directory
-    icon: folder
-    description: >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  glob:
-    title: Glob
-    icon: regular_expression
-    description: >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ---
 
-{% partial file="hero.md" variables=$frontmatter.hero /%}
-{% partial file="showcase.md" variables=$frontmatter.showcase /%}
-{% partial file="storage-solutions.md" variables=$frontmatter.storageSolutions /%}
+{% hero title="Get started" href="/docs/installation" %}
+  # Access any content like it's MongoDB
+
+  A document-oriented database that lets you work with `JSON`, `YAML` and
+  `Markdown` files with the power of MongoDB aggregations all in javascript
+{% /hero %}
+
+{% showcase title=$frontmatter.showcase.title description=$frontmatter.showcase.description expanded=true %}
+  {% editor %}
+  ```typescript
+  const db = tashmet.db('aggregation');
+  const coll = await db.createCollection('restaurants');
+
+  // Create sample documents
+  const docs = [
+    { stars: 3, categories: ["Bakery", "Sandwiches"], name: "Rising Sun Bakery" },
+    { stars: 4, categories: ["Bakery", "Cafe", "Bar"], name: "Cafe au Late" },
+    { stars: 5, categories: ["Coffee", "Bakery"], name: "Liz's Coffee Bar" },
+    { stars: 3, categories: ["Steak", "Seafood"], name: "Oak Steakhouse" },
+    { stars: 4, categories: ["Bakery", "Dessert"], name: "Petit Cookie" },
+  ];
+
+  // Insert documents into the restaurants collection
+  await coll.insertMany(docs);
+
+  // Define an aggregation pipeline with a match stage and a group stage
+  const pipeline = [
+    { $match: { categories: "Bakery" } },
+    { $group: { _id: "$stars", count: { $sum: 1 } } }
+  ];
+
+  // Execute the aggregation
+  const aggCursor = coll.aggregate(pipeline);
+
+  // Print the aggregated results
+  for await (const doc of aggCursor) {
+      console.log(doc);
+  }
+  ```
+  {% /editor %}
+{% /showcase %}
+
+{% section background="white" %}
+# Multiple storage solutions
+
+## Access your content in any form
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+{% tabs %}
+
+{% tab title="Array in file" icon="data_array" %}
+{% grid cols=2 %}
+  {% editor %}
+  {% file title="db.yaml" %}
+  ```yaml
+  collections:
+    myCollection:
+      storageEngine:
+        arrayInFile:
+          path: content/myCollection.yaml
+          format: yaml
+          field: documents
+  ```
+  {% /file %}
+  {% file title="content/myCollection.yaml" %}
+  ```yaml
+  documents:
+    - _id: foo
+      title: Foo
+    - _id: bar
+      title: Bar
+  ```
+  {% /file %}
+  {% /editor %}
+
+  {% div %}
+  ## Array in file
+
+  ### Store a collection as an array within a JSON or YAML file.
+
+  A collection can be stored in a single file either as an array at the root of
+  the document, or on a specified field.
+
+  [See documentation](/docs/array-in-file)
+  {% /div %}
+{% /grid %}
+{% /tab %}
+
+{% tab title="Object in file" icon="data_object" %}
+{% grid cols=2 %}
+  {% editor %}
+  {% file title="db.yaml" %}
+  ```yaml
+  collections:
+    myCollection:
+      storageEngine:
+        objectInFile:
+          path: content/myCollection.yaml
+          format: yaml
+          field: documents
+  ```
+  {% /file %}
+  {% file title="content/myCollection.yaml" %}
+  ```yaml
+  documents:
+    foo:
+      title: Foo
+    bar:
+      title: Bar
+  ```
+  {% /file %}
+  {% /editor %}
+
+  {% div %}
+  ## Object in file
+
+  ### Store a collection as an object within a JSON or YAML file
+
+  Store a whole collection as an object within a single file. The _id field of
+  each document is represented by each key of the object in the file and the
+  rest of the document is represented by the value for that key.
+
+  [See documentation](/docs/object-in-file)
+  {% /div %}
+{% /grid %}
+{% /tab %}
+
+{% tab title="Directory" icon="folder" %}
+{% grid cols=2 %}
+  {% editor %}
+  {% file title="db.yaml" %}
+  ```yaml
+  collections:
+    posts:
+      storageEngine:
+        directory:
+          path: ./content/myCollection
+          extension: .yaml
+          format: yaml
+  ```
+  {% /file %}
+  {% file title="content/myCollection/foo.yaml" %}
+  ```yaml
+  title: Foo
+  ```
+  {% /file %}
+  {% file title="content/myCollection/bar.yaml" %}
+  ```yaml
+  title: Bar
+  ```
+  {% /file %}
+  {% /editor %}
+  {% div %}
+  ## Directory
+
+  ### Store a collection in multiple files within a directory
+
+  Store a collection as multiple files within a single directory. The _id field
+  of each document is represented by the file name relative to the directory
+  path without extension.
+  
+  [See documentation](/docs/directory)
+  {% /div %}
+{% /grid %}
+{% /tab %}
+
+{% tab title="Glob" icon="regular_expression" %}
+{% grid cols=2 %}
+  {% editor %}
+  ```yaml
+  collections:
+    myCollection:
+      storageEngine:
+        glob:
+          pattern: ./content/**/*.yaml
+          extension: .yaml
+          format: yaml
+  ```
+  {% /editor %}
+
+  {% div %}
+  ## Glob
+
+  ### Store a collection in multiple files targeted by a glob pattern
+
+  Store a collection as multiple files within multiple directories. The _id field
+  of each document is represented by the file path matched by the pattern
+
+  [See documentation](/docs/glob)
+  {% /div %}
+{% /grid %}
+{% /tab %}
+
+{% /tabs %}
+
+{% /section %}
