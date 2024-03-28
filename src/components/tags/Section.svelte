@@ -10,7 +10,7 @@
 
 <style lang="postcss">
   :global(.section p) {
-    @apply mt-6 text-sm text-slate-600 max-w-3xl;
+    @apply mt-6 text-slate-600 max-w-3xl;
   }
   :global(.section h1) {
     @apply text-teal-400 font-bold tracking-tight dark:text-white
